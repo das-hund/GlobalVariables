@@ -4,32 +4,32 @@ namespace CodeDk
 {
     public static class FloatClamping
     {
-        public static FloatClampingResult Clamp(float value, float minValue, float maxValue)
+        public static (float result, bool didBreachRange) Clamp(float value, float minValue, float maxValue)
         {
             Debug.AssertFormat(minValue <= maxValue,
                 $"Parameter minValue (minValue) must be less than or equal to parameter maxValue ({maxValue})!");
 
             if (value < minValue)
             {
-                return new FloatClampingResult(true, minValue);
+                return (minValue, true);
             }
             else if (value > maxValue)
             {
-                return new FloatClampingResult(true, maxValue);
+                return (maxValue, true);
             }
             else
             {
-                return new FloatClampingResult(false, value);
+                return (value, false);
             }
         }
 
-        public static FloatClampingResult Repeat(float value, float minValue, float maxValue)
+        public static (float result, bool didBreachRange) Repeat(float value, float minValue, float maxValue)
         {
             Debug.AssertFormat(minValue <= maxValue,
                 $"Parameter minValue (minValue) must be less than or equal to parameter maxValue ({maxValue})!");
 
             if (value >= minValue && value <= maxValue)
-                return new FloatClampingResult(false, value);
+                return (value, false);
 
             float rangeLength = maxValue - minValue;
             float valueShiftedToRange = value - minValue;
@@ -38,17 +38,17 @@ namespace CodeDk
 
             value = minValue + newValue;
 
-            return new FloatClampingResult(true, value);
+            return (value, true);
         }
 
-        public static FloatClampingResult PingPong(float value, float minValue, float maxValue)
+        public static (float result, bool didBreachRange) PingPong(float value, float minValue, float maxValue)
         {
             Debug.AssertFormat(minValue <= maxValue,
                 "Parameter minValue ({0}) must be less than or equal to parameter maxValue ({0})!",
                 minValue, maxValue);
 
             if (value >= minValue && value <= maxValue)
-                return new FloatClampingResult(false, value);
+                return (value, false);
 
             float rangeLength = maxValue - minValue;
             float valueShiftedToRange = value - minValue;
@@ -57,7 +57,7 @@ namespace CodeDk
 
             value = minValue + newValue;
 
-            return new FloatClampingResult(true, value);
+            return (value, true);
         }
     }
 }

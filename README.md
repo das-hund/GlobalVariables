@@ -26,8 +26,8 @@ In this example, a number of cubes is moved around using the GameEvent functiona
 
 ### 3 - Functions
 
-In the Pong scene, a ball bounces around in a cube. This example illustrates the use of functions to update GlobalVariables.
-`Ball_ComponentMin_Calculation` updates `Ball_ComponentMin`, depending on the `Cube_EdgeLength` variable. `Ball_ComponentMin` and `Ball_ComponentMax` tell the ClampingFunctions (e.g. `Ball_X_ClampingFunction`) how far the ball can move on the X, Y and Z coordinate before it hits a wall. These ClampingFunctions ensure that the ball never leaves the cube. The ClampingFunctions raise events whenever they have to apply the clamping logic. The RestrictedBallMover listens to these events and mirrors the ball's direction appropriately.
+In the Pong scene, a ball bounces around in a box. This example illustrates the use of functions to update GlobalVariables.
+`Ball_Pos_Max_Calculation` updates `Ball_Pos_Max`, depending on the `Box_Size` variable. `Ball_Pos_Min` and `Ball_Pos_Max` tell the ClampingFunction `Ball_Clamping_Calculation` how far the ball can move on the X, Y and Z coordinate before it hits a wall. This ClampingFunction ensures that the ball never leaves the box. The ClampingFunction raises events whenever it has to apply the clamping logic. The RestrictedBallMover listens to these events and mirrors the ball's direction appropriately.
 
 ## Contact
 

@@ -7,17 +7,13 @@ public class RestrictedMover : MonoBehaviour
     public FloatReference velocity;
     public Rigidbody targetRigidbody;
 
-    public FloatVariable x_position;
-    public FloatVariable y_position;
-    public FloatVariable z_position;
+    public Vector3Reference ballPosition;
 
-    public ClampingFunction x_clamping;
-    public ClampingFunction y_clamping;
-    public ClampingFunction z_clamping;
+    public Vector3ClampingFunction clampingFunction;
 
     // We need to explicitly reference the calculations that live in project-space.
     // Otherwise, Unity will not load them for us!
-    public LinearFunction[] maxBallComponentCalculations;
+    public Vector3LinearFunction[] maxBallComponentCalculations;
 
     public void Update()
     {
@@ -26,19 +22,7 @@ public class RestrictedMover : MonoBehaviour
 
         Vector3 newPos = targetRigidbody.position + velocity.Value * direction.Value * Time.deltaTime;
 
-        UpdatePositionReferences(newPos);
-    }
-
-    private void UpdatePositionReferences(Vector3 newPos)
-    {
-        if (x_position != null)
-            x_position.Value = newPos.x;
-
-        if (y_position != null)
-            y_position.Value = newPos.y;
-
-        if (z_position != null)
-            z_position.Value = newPos.z;
+        ballPosition.Value = newPos;
     }
 
     public void OnEnable()
@@ -58,9 +42,7 @@ public class RestrictedMover : MonoBehaviour
         SubscribeTo(direction);
         SubscribeTo(velocity);
 
-        SubscribeTo(x_clamping);
-        SubscribeTo(y_clamping);
-        SubscribeTo(z_clamping);
+        SubscribeTo(clampingFunction);
     }
 
 
@@ -69,9 +51,7 @@ public class RestrictedMover : MonoBehaviour
         UnsubscribeFrom(direction);
         UnsubscribeFrom(velocity);
 
-        UnsubscribeFrom(x_clamping);
-        UnsubscribeFrom(y_clamping);
-        UnsubscribeFrom(z_clamping);
+        UnsubscribeFrom(clampingFunction);
     }
 
     private void SubscribeTo(VariableReference varRef)
@@ -79,13 +59,16 @@ public class RestrictedMover : MonoBehaviour
         varRef.SubscribeToEvents(HandleReferenceEvents);
     }
 
-    private void SubscribeTo(ClampingFunction function)
+    private void SubscribeTo(Vector3ClampingFunction function)
     {
         if (function == null)
             return;
 
-        function.ValueBreachedRange -= HandleClampingEvents;
-        function.ValueBreachedRange += HandleClampingEvents;
+        UnsubscribeFrom(function);
+
+        function.ValueBreachedRangeX += ReflectWithXNormal;
+        function.ValueBreachedRangeY += ReflectWithYNormal;
+        function.ValueBreachedRangeZ += ReflectWithZNormal;
     }
 
     private void UnsubscribeFrom(VariableReference varRef)
@@ -93,12 +76,14 @@ public class RestrictedMover : MonoBehaviour
         varRef.UnsubscribeFromEvents(HandleReferenceEvents);
     }
 
-    private void UnsubscribeFrom(ClampingFunction function)
+    private void UnsubscribeFrom(Vector3ClampingFunction function)
     {
         if (function == null)
             return;
 
-        function.ValueBreachedRange -= HandleClampingEvents;
+        function.ValueBreachedRangeX -= ReflectWithXNormal;
+        function.ValueBreachedRangeY -= ReflectWithYNormal;
+        function.ValueBreachedRangeZ -= ReflectWithZNormal;
     }
 
     private void HandleReferenceEvents(object source, VariableReferenceEvent args)
@@ -107,50 +92,41 @@ public class RestrictedMover : MonoBehaviour
             NormalizeDirection();
     }
 
-    private void HandleClampingEvents(object source, RangeBreachedEvent args)
-    {
-        var clampingFunction = source as ClampingFunction;
-
-        if (clampingFunction == null)
-            return;
-
-        if (clampingFunction == x_clamping && x_clamping.WrapMode == RangeWrapMode.PingPong)
-        {
-            ReflectWithXNormal();
-        }
-        else if (clampingFunction == y_clamping && y_clamping.WrapMode == RangeWrapMode.PingPong)
-        {
-            ReflectWithYNormal();
-        }
-        else if (clampingFunction == z_clamping && z_clamping.WrapMode == RangeWrapMode.PingPong)
-        {
-            ReflectWithZNormal();
-        }
-    }
-
     private void NormalizeDirection()
     {
         direction.Value = direction.Value.normalized;
     }
 
-    private void ReflectWithXNormal()
+    private void ReflectWithXNormal(object source, RangeBreachedEvent args)
     {
+        if (source is ClampingFunction clamping &&
+            clamping.WrapMode != RangeWrapMode.PingPong)
+            return;
+
         Vector3 currentDirection = direction.Value;
         currentDirection.x = -currentDirection.x;
         direction.Value = currentDirection;
     }
 
 
-    private void ReflectWithYNormal()
+    private void ReflectWithYNormal(object source, RangeBreachedEvent args)
     {
+        if (source is ClampingFunction clamping &&
+            clamping.WrapMode != RangeWrapMode.PingPong)
+            return;
+
         Vector3 currentDirection = direction.Value;
         currentDirection.y = -currentDirection.y;
         direction.Value = currentDirection;
     }
 
 
-    private void ReflectWithZNormal()
+    private void ReflectWithZNormal(object source, RangeBreachedEvent args)
     {
+        if (source is ClampingFunction clamping &&
+            clamping.WrapMode != RangeWrapMode.PingPong)
+            return;
+
         Vector3 currentDirection = direction.Value;
         currentDirection.z = -currentDirection.z;
         direction.Value = currentDirection;

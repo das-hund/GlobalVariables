@@ -6,9 +6,7 @@ public abstract class TransformSetter : MonoBehaviour
 {
     protected Transform _target;
 
-    public FloatReference xVar;
-    public FloatReference yVar;
-    public FloatReference zVar;
+    public Vector3Reference variableToSet;
 
     public Vector3 constantBias;
     public Vector3 relativeBias;
@@ -34,16 +32,12 @@ public abstract class TransformSetter : MonoBehaviour
     {
         UnsubscribeFromReferenceEvents();
 
-        xVar.SubscribeToEvents(HandleChanges);
-        yVar.SubscribeToEvents(HandleChanges);
-        zVar.SubscribeToEvents(HandleChanges);
+        variableToSet.SubscribeToEvents(HandleChanges);
     }
 
     private void UnsubscribeFromReferenceEvents()
     {
-        xVar.UnsubscribeFromEvents(HandleChanges);
-        yVar.UnsubscribeFromEvents(HandleChanges);
-        zVar.UnsubscribeFromEvents(HandleChanges);
+        variableToSet.UnsubscribeFromEvents(HandleChanges);
     }
 
     public void HandleChanges(object source, VariableReferenceEvent args)
@@ -51,26 +45,8 @@ public abstract class TransformSetter : MonoBehaviour
         if (args != VariableReferenceEvent.Empty)
             return;
 
-        Vector3 toSet = GetFromTransform();
-        Vector3 transformed = TransformVariable(new Vector3(xVar, yVar, zVar));
-
-        if (ReferenceEquals(source, xVar))
-        {
-            toSet.x = transformed.x;
-            _startTime = Time.time;
-        }
-
-        if (ReferenceEquals(source, yVar))
-        {
-            toSet.y = transformed.y;
-            _startTime = Time.time;
-        }
-
-        if (ReferenceEquals(source, zVar))
-        {
-            toSet.z = transformed.z;
-            _startTime = Time.time;
-        }
+        Vector3 toSet = TransformVariable(variableToSet.Value);
+        _startTime = Time.time;
 
         if (lerp)
         {
@@ -85,24 +61,24 @@ public abstract class TransformSetter : MonoBehaviour
 
     public IEnumerator InterpolateTowards()
     {
-        Vector3 toSet = GetFromTransform();
-        Vector3 transformed = TransformVariable(new Vector3(xVar, yVar, zVar));
+        Vector3 currentValue = GetFromTransform();
+        Vector3 transformed = TransformVariable(variableToSet.Value);
 
         while (Time.time < _startTime + lerpTime)
         {
             float fraction = (Time.time - _startTime) / lerpTime;
 
-            toSet.x = Mathf.Lerp(toSet.x, transformed.x, fraction);
-            toSet.y = Mathf.Lerp(toSet.y, transformed.y, fraction);
-            toSet.z = Mathf.Lerp(toSet.z, transformed.z, fraction);
+            currentValue.x = Mathf.Lerp(currentValue.x, transformed.x, fraction);
+            currentValue.y = Mathf.Lerp(currentValue.y, transformed.y, fraction);
+            currentValue.z = Mathf.Lerp(currentValue.z, transformed.z, fraction);
 
-            SetOnTransform(toSet);
+            SetOnTransform(currentValue);
 
             yield return 0;
         }
 
-        toSet = transformed;
-        SetOnTransform(toSet);
+        currentValue = transformed;
+        SetOnTransform(currentValue);
     }
 
     private Vector3 TransformVariable(Vector3 value)

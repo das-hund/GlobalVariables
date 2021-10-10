@@ -3,25 +3,39 @@ using UnityEngine;
 
 namespace CodeDk
 {
-    [Serializable, CreateAssetMenu(fileName = "Clamping Function", menuName = "Global Variables/Functions/Clamping")]
-    public class ClampingFunction : ScriptableObject
+    public abstract class ClampingFunction : ScriptableObject
     {
-        [Tooltip("The variable that is to be clamped."), SerializeField]
-        private FloatReference _parameter;
-
-        [Tooltip("Minimum allowed value."), SerializeField]
-        private FloatReference _minValue;
-
-        [Tooltip("Maximum allowed value."), SerializeField]
-        private FloatReference _maxValue;
-
-        [Tooltip("Where will the result of the clamping be written to?"), SerializeField]
-        private FloatVariable _result;
+        public event EventHandler<RangeBreachedEvent> ValueBreachedRange;
 
         [Tooltip("How will values outside of the range be mapped into the range?"), SerializeField]
         private RangeWrapMode _wrapMode = RangeWrapMode.Clamp;
 
-        public event EventHandler<RangeBreachedEvent> ValueBreachedRange;
+        public RangeWrapMode WrapMode
+        {
+            get { return _wrapMode; }
+        }
+
+        protected virtual void OnValueBreachedRange(RangeBreachedEvent e)
+        {
+            ValueBreachedRange?.Invoke(this, e);
+        }
+    }
+
+    public abstract class ClampingFunction<TVar, TGlobalVar, TVarReference> : ClampingFunction
+        where TGlobalVar : GlobalVariable<TVar>
+        where TVarReference : VariableReference<TVar, TGlobalVar>
+    {
+        [Tooltip("The variable that is to be clamped."), SerializeField]
+        private TVarReference _parameter;
+
+        [Tooltip("Minimum allowed value."), SerializeField]
+        private TVarReference _minValue;
+
+        [Tooltip("Maximum allowed value."), SerializeField]
+        private TVarReference _maxValue;
+
+        [Tooltip("Where will the result of the clamping be written to?"), SerializeField]
+        private TGlobalVar _result;
 
         public void OnEnable()
         {
@@ -38,20 +52,22 @@ namespace CodeDk
             UpdateResult(null, VariableReferenceEvent.Empty);
         }
 
-        public FloatReference MinValue
+        public TVarReference Parameter
+        {
+            get { return _parameter; }
+        }
+
+        public TVarReference MinValue
         {
             get { return _minValue; }
         }
 
-        public FloatReference MaxValue
+        public TVarReference MaxValue
         {
             get { return _maxValue; }
         }
 
-        public RangeWrapMode WrapMode
-        {
-            get { return _wrapMode; }
-        }
+        protected abstract (TVar Result, bool DidBreachRange) PerformClamping();
 
         private void UpdateResult(object subject, VariableReferenceEvent args)
         {
@@ -63,24 +79,12 @@ namespace CodeDk
                 return;
             }
 
-            PerformClamping();
-        }
+            var clampResult = PerformClamping();
 
-        private void PerformClamping()
-        {
-            var clampingResult = _wrapMode switch
+            if(clampResult.DidBreachRange)
             {
-                RangeWrapMode.None => new FloatClampingResult(false, _parameter.Value),
-                RangeWrapMode.Clamp => FloatClamping.Clamp(_parameter.Value, MinValue, MaxValue),
-                RangeWrapMode.Repeat => FloatClamping.Repeat(_parameter.Value, MinValue, MaxValue),
-                RangeWrapMode.PingPong => FloatClamping.PingPong(_parameter.Value, MinValue, MaxValue),
-                _ => new FloatClampingResult(false, _parameter.Value),
-            };
-
-            if (clampingResult.DidBreachRange)
-            {
-                _result.Value = clampingResult.Result;
-                ValueBreachedRange?.Invoke(this, RangeBreachedEvent.Empty);
+                _result.Value = clampResult.Result;
+                OnValueBreachedRange(RangeBreachedEvent.Empty);
             }
         }
 

@@ -135,8 +135,6 @@ GameObject:
   - component: {fileID: 3372836}
   - component: {fileID: 3372835}
   - component: {fileID: 3372834}
-  - component: {fileID: 3372833}
-  - component: {fileID: 3372838}
   m_Layer: 0
   m_Name: Top
   m_TagString: Untagged
@@ -144,37 +142,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3372833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3372832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532a5632167e59b4798fe2dfd2f1ebff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  yVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
-  zVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  constantBias: {x: 0, y: 0, z: 0}
-  relativeBias: {x: 1, y: 0.5, z: 1}
-  lerp: 0
-  lerpTime: 1
 --- !u!23 &3372834
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -252,37 +219,6 @@ Transform:
   m_Father: {fileID: 1797382825}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3372838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3372832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d5afd8cc6797f441ad5df4c760c7854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
-  yVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  zVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
-  constantBias: {x: 0, y: 0, z: 0}
-  relativeBias: {x: 0.1, y: 1, z: 0.1}
-  lerp: 0
-  lerpTime: 1
 --- !u!1 &142800164
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,21 +252,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532a5632167e59b4798fe2dfd2f1ebff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xVar:
+  variableToSet:
     _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 77d9fc2512ba7be498db0d85391f214a, type: 2}
-    _localValue: 0
-  yVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 617262f3a66d88645a2c3835694e806f, type: 2}
-    _localValue: 0
-  zVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 52b4a3b6bb69aba47a7355b94fda8661, type: 2}
-    _localValue: 0
+    _globalVariable: {fileID: 11400000, guid: b9f602c311cabb74fb5324c62110cafc, type: 2}
+    _localValue: {x: 0, y: 0, z: 0}
   constantBias: {x: 0, y: 0, z: 0}
   relativeBias: {x: 1, y: 1, z: 1}
   lerp: 0
@@ -532,8 +457,6 @@ GameObject:
   - component: {fileID: 490466743}
   - component: {fileID: 490466742}
   - component: {fileID: 490466741}
-  - component: {fileID: 490466740}
-  - component: {fileID: 490466745}
   m_Layer: 0
   m_Name: Right
   m_TagString: Untagged
@@ -541,37 +464,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &490466740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 490466739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532a5632167e59b4798fe2dfd2f1ebff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
-  yVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  zVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  constantBias: {x: 0, y: 0, z: 0}
-  relativeBias: {x: 0.5, y: 1, z: 1}
-  lerp: 0
-  lerpTime: 1
 --- !u!23 &490466741
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -649,37 +541,6 @@ Transform:
   m_Father: {fileID: 1797382825}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &490466745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 490466739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d5afd8cc6797f441ad5df4c760c7854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
-  yVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  zVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
-  constantBias: {x: 0, y: 0, z: 0}
-  relativeBias: {x: 0.1, y: 1, z: 0.1}
-  lerp: 0
-  lerpTime: 1
 --- !u!1 &517209609
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,8 +553,6 @@ GameObject:
   - component: {fileID: 517209613}
   - component: {fileID: 517209612}
   - component: {fileID: 517209611}
-  - component: {fileID: 517209610}
-  - component: {fileID: 517209615}
   m_Layer: 0
   m_Name: Back
   m_TagString: Untagged
@@ -701,37 +560,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &517209610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 517209609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532a5632167e59b4798fe2dfd2f1ebff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  yVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  zVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
-  constantBias: {x: 0, y: 0, z: 0}
-  relativeBias: {x: 1, y: 1, z: 0.5}
-  lerp: 0
-  lerpTime: 1
 --- !u!23 &517209611
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -809,37 +637,6 @@ Transform:
   m_Father: {fileID: 1797382825}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &517209615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 517209609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d5afd8cc6797f441ad5df4c760c7854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
-  yVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  zVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
-  constantBias: {x: 0, y: 0, z: 0}
-  relativeBias: {x: 0.1, y: 1, z: 0.1}
-  lerp: 0
-  lerpTime: 1
 --- !u!1 &708781534
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,25 +742,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532a5632167e59b4798fe2dfd2f1ebff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  yVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  zVar:
+  variableToSet:
     _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
+    _globalVariable: {fileID: 11400000, guid: b2bc339e2c350c84e94db0c5b516c6e4, type: 2}
+    _localValue: {x: 0, y: 0, z: 0}
   constantBias: {x: 0, y: 0, z: 0}
-  relativeBias: {x: 1, y: 1, z: -1.5}
+  relativeBias: {x: 0, y: 0, z: -1.5}
   lerp: 1
-  lerpTime: 5
+  lerpTime: 10
 --- !u!1 &754090177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,24 +949,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction:
     _usingGlobal: 1
-    _defaultToLocal: 0
     _globalVariable: {fileID: 11400000, guid: a20a7cea4906f31469ea524dc909c8b4, type: 2}
     _localValue: {x: 0, y: 0, z: 0}
   velocity:
     _usingGlobal: 1
-    _defaultToLocal: 0
     _globalVariable: {fileID: 11400000, guid: 91906464dd53880448f61943526b67ef, type: 2}
     _localValue: 0
   targetRigidbody: {fileID: 142800171}
-  x_position: {fileID: 11400000, guid: 77d9fc2512ba7be498db0d85391f214a, type: 2}
-  y_position: {fileID: 11400000, guid: 617262f3a66d88645a2c3835694e806f, type: 2}
-  z_position: {fileID: 11400000, guid: 52b4a3b6bb69aba47a7355b94fda8661, type: 2}
-  x_clamping: {fileID: 11400000, guid: 560f37e67af471648897d148fa439dfe, type: 2}
-  y_clamping: {fileID: 11400000, guid: eb07cc42da9936b42aa147fd2ece46f4, type: 2}
-  z_clamping: {fileID: 11400000, guid: 14d5c44f26771c34199c32231dcdbf73, type: 2}
+  ballPosition:
+    _usingGlobal: 1
+    _globalVariable: {fileID: 11400000, guid: b9f602c311cabb74fb5324c62110cafc, type: 2}
+    _localValue: {x: 0, y: 0, z: 0}
+  clampingFunction: {fileID: 11400000, guid: 3476c407d60444c4f99f0f0e2ea8f441, type: 2}
   maxBallComponentCalculations:
-  - {fileID: 11400000, guid: b816244554ef49147bfa0238757643a5, type: 2}
-  - {fileID: 11400000, guid: 40d5ebc91cce3bf4fa0081ff6b3aa49c, type: 2}
+  - {fileID: 11400000, guid: 9b918df0f7b568f40acfdd410da66208, type: 2}
+  - {fileID: 11400000, guid: 5c887598e92fdf347bd15fb7eaad13b1, type: 2}
 --- !u!1 &1795829164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,8 +976,6 @@ GameObject:
   - component: {fileID: 1795829168}
   - component: {fileID: 1795829167}
   - component: {fileID: 1795829166}
-  - component: {fileID: 1795829165}
-  - component: {fileID: 1795829170}
   m_Layer: 0
   m_Name: Bottom
   m_TagString: Untagged
@@ -1202,37 +983,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1795829165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795829164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532a5632167e59b4798fe2dfd2f1ebff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  yVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
-  zVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  constantBias: {x: 0, y: 0, z: 0}
-  relativeBias: {x: 1, y: -0.5, z: 1}
-  lerp: 0
-  lerpTime: 1
 --- !u!23 &1795829166
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1310,37 +1060,6 @@ Transform:
   m_Father: {fileID: 1797382825}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1795829170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1795829164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d5afd8cc6797f441ad5df4c760c7854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
-  yVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  zVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
-  constantBias: {x: 0, y: 0, z: 0}
-  relativeBias: {x: 0.1, y: 1, z: 0.1}
-  lerp: 0
-  lerpTime: 1
 --- !u!1 &1797382824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1350,6 +1069,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1797382825}
+  - component: {fileID: 1797382826}
   m_Layer: 0
   m_Name: Surfaces
   m_TagString: Untagged
@@ -1376,6 +1096,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1797382826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797382824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5afd8cc6797f441ad5df4c760c7854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variableToSet:
+    _usingGlobal: 1
+    _globalVariable: {fileID: 11400000, guid: b2bc339e2c350c84e94db0c5b516c6e4, type: 2}
+    _localValue: {x: 0, y: 0, z: 0}
+  constantBias: {x: 0, y: 0, z: 0}
+  relativeBias: {x: 0.1, y: 0.1, z: 0.1}
+  lerp: 0
+  lerpTime: 1
 --- !u!1 &2006281340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,8 +1128,6 @@ GameObject:
   - component: {fileID: 2006281344}
   - component: {fileID: 2006281343}
   - component: {fileID: 2006281342}
-  - component: {fileID: 2006281341}
-  - component: {fileID: 2006281346}
   m_Layer: 0
   m_Name: Left
   m_TagString: Untagged
@@ -1397,37 +1135,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2006281341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006281340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 532a5632167e59b4798fe2dfd2f1ebff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
-  yVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  zVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  constantBias: {x: 0, y: 0, z: 0}
-  relativeBias: {x: -0.5, y: 1, z: 1}
-  lerp: 0
-  lerpTime: 1
 --- !u!23 &2006281342
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1505,34 +1212,3 @@ Transform:
   m_Father: {fileID: 1797382825}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &2006281346
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006281340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d5afd8cc6797f441ad5df4c760c7854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
-  yVar:
-    _usingGlobal: 0
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: 0
-  zVar:
-    _usingGlobal: 1
-    _defaultToLocal: 0
-    _globalVariable: {fileID: 11400000, guid: 75163228765136540933960b258e3df6, type: 2}
-    _localValue: 0
-  constantBias: {x: 0, y: 0, z: 0}
-  relativeBias: {x: 0.1, y: 1, z: 0.1}
-  lerp: 0
-  lerpTime: 1

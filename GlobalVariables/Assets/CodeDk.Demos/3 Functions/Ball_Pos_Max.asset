@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6357c9bcc5e8ccc4495ff5e7e23940eb, type: 3}
-  m_Name: Ball_X_Position
+  m_Script: {fileID: 11500000, guid: 77636ac90c73a7d46aead0ec47ee4f61, type: 3}
+  m_Name: Ball_Pos_Max
   m_EditorClassIdentifier: 
-  value: 0
-  readOnly: 1
-  description: 
+  _value: {x: 5, y: 5, z: 5}
+  _readOnly: 1
+  _description: 

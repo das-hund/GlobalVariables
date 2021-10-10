@@ -1,17 +1,26 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace CodeDk
 {
-    [Serializable, CreateAssetMenu(fileName = "Linear Function", menuName = "Global Variables/Functions/Linear")]
-    public class LinearFunction : ScriptableObject
+    public abstract class LinearFunction : ScriptableObject
     {
-        public FloatReference parameter;
+    }
 
-        public FloatReference constant;
-        public FloatReference scalar;
+    public abstract class LinearFunction<TVar, TGlobalVar, TVarReference> : LinearFunction
+        where TGlobalVar : GlobalVariable<TVar>
+        where TVarReference : VariableReference<TVar, TGlobalVar>
+    {
+        [Tooltip("The input variable."), SerializeField]
+        private TVarReference _parameter;
 
-        public FloatVariable result;
+        [Tooltip("The factor the input will be multiplied with."), SerializeField]
+        private TVarReference _factor;
+
+        [Tooltip("The constant that will be added to the input."), SerializeField]
+        private TVarReference _constant;
+
+        [Tooltip("Where will the result of the linear function be written to?"), SerializeField]
+        private TGlobalVar _result;
 
         public void OnEnable()
         {
@@ -28,33 +37,50 @@ namespace CodeDk
             UpdateResult(null, VariableReferenceEvent.Empty);
         }
 
+        public TVarReference Parameter
+        {
+            get { return _parameter; }
+        }
+
+        public TVarReference Factor
+        {
+            get { return _factor; }
+        }
+
+        public TVarReference Constant
+        {
+            get { return _constant; }
+        }
+
+        protected abstract TVar PerformLinearFunction();
+
         private void UpdateResult(object subject, VariableReferenceEvent args)
         {
-            if (result == null ||
-                !parameter.IsValid ||
-                !scalar.IsValid ||
-                !constant.IsValid)
+            if (_result == null ||
+                !_parameter.IsValid ||
+                !_factor.IsValid ||
+                !_constant.IsValid)
             {
                 return;
             }
 
-            result.Value = parameter.Value * scalar.Value + constant.Value;
+            _result.Value = PerformLinearFunction();
         }
 
         private void SubscribeToEvents()
         {
             UnsubscribeFromEvents();
 
-            parameter?.SubscribeToEvents(UpdateResult);
-            constant?.SubscribeToEvents(UpdateResult);
-            scalar?.SubscribeToEvents(UpdateResult);
+            _parameter?.SubscribeToEvents(UpdateResult);
+            _factor?.SubscribeToEvents(UpdateResult);
+            _constant?.SubscribeToEvents(UpdateResult);
         }
 
         private void UnsubscribeFromEvents()
         {
-            parameter?.UnsubscribeFromEvents(UpdateResult);
-            constant?.UnsubscribeFromEvents(UpdateResult);
-            scalar?.UnsubscribeFromEvents(UpdateResult);
+            _parameter?.UnsubscribeFromEvents(UpdateResult);
+            _factor?.UnsubscribeFromEvents(UpdateResult);
+            _constant?.UnsubscribeFromEvents(UpdateResult);
         }
     }
 }
