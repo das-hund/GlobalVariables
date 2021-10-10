@@ -11,10 +11,6 @@ namespace CodeDk
         [SerializeField]
         private bool _usingGlobal = true;
 
-        [SerializeField]
-        private bool _defaultToLocal = true;
-
-
         public virtual void SubscribeToEvents(EventHandler<VariableReferenceEvent> handler)
         {
             ChangedEvent += handler;
@@ -117,13 +113,6 @@ namespace CodeDk
             }
         }
 
-        public bool DefaultToLocal
-        {
-            get { return _defaultToLocal; }
-            set { _defaultToLocal = value; }
-        }
-
-
         public abstract GlobalVariable UntypedGlobalVariable { get; }
 
         public abstract bool IsValid { get; }
@@ -182,39 +171,20 @@ namespace CodeDk
         {
             get
             {
-                if (IsValid)
-                {
-                    if (IsGlobal)
-                        return GlobalVariable;
-                    else
-                        return LocalValue;
-                }
-                else
-                {
-                    // We know IsGlobal is true because otherwise we would be in a valid state! See IsInValidState
-                    if (DefaultToLocal)
-                        return LocalValue;
-                    else
-                        throw new InvalidOperationException("Cannot return value on VariableReference in global state when globalReference is null!");
-                }
+                if (!IsValid)
+                    throw new InvalidOperationException("Cannot return value on VariableReference in global state when globalReference is null!");
+                
+                return IsGlobal ? GlobalVariable : LocalValue;
             }
             set
             {
-                if (IsValid)
-                {
-                    if (IsGlobal)
-                        GlobalVariable.Value = value;
-                    else
-                        LocalValue = value;
-                }
+                if (!IsValid)
+                    throw new InvalidOperationException("Cannot assign value to VariableReference in global state when globalReference is null!");               
+
+                if (IsGlobal)
+                    GlobalVariable.Value = value;
                 else
-                {
-                    // We know IsGlobal is true because otherwise we would be in a valid state! See IsInValidState
-                    if (DefaultToLocal)
-                        LocalValue = value;
-                    else
-                        throw new InvalidOperationException("Cannot assign value to VariableReference in global state when globalReference is null!");
-                }
+                    LocalValue = value;
             }
         }
 
