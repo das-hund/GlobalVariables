@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f258261217f8f489d8fa060eb5605d, type: 3}
+  m_Name: '[ger]Instructions'
+  m_EditorClassIdentifier: 
+  _value: "Ein paar Dinge, die Sie in dieser Demo ausprobieren k\xF6nnen: Sie k\xF6nnen
+    die Assets w\xE4hrend des Spielmodus bearbeiten und sehen, dass die \xC4nderungen
+    sofort in der Benutzeroberfl\xE4che angezeigt werden, da die Assets Ereignisse
+    ausl\xF6sen, wenn sie ge\xE4ndert werden. \xDCberpr\xFCfen Sie auch die Einstellung
+    \"Read Only\". W\xE4hrend des Spielmodus k\xF6nnen Sie jederzeit entscheiden,
+    ob Sie die vorgenommenen \xC4nderungen beibehalten wollen oder nicht, indem Sie
+    einfach \"Read Only\" aktivieren oder deaktivieren."
+  _readOnly: 1
+  _description: 

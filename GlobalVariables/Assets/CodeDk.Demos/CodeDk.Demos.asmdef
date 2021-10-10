@@ -1,0 +1,16 @@
+{
+    "name": "CodeDk.Demos",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f4a2f010a6ef1e247ac874ba76e8aee9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
