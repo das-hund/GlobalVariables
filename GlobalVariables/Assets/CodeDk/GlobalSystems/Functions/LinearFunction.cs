@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace CodeDk
 {
-    public abstract class LinearFunction : System
+    public abstract class LinearFunction : GlobalSystem
     {
     }
 
@@ -14,7 +15,7 @@ namespace CodeDk
         private TVarReference _parameter;
 
         [Tooltip("The factor the input will be multiplied with."), SerializeField]
-        private TVarReference _factor;
+        private FloatReference _factor;
 
         [Tooltip("The constant that will be added to the input."), SerializeField]
         private TVarReference _constant;
@@ -24,7 +25,8 @@ namespace CodeDk
 
         public void OnEnable()
         {
-            SubscribeToEvents();
+            EnabledChanged += OnEnabledChanged;
+            OnEnabledChanged(this, EventArgs.Empty);
         }
 
         public void OnDisable()
@@ -42,7 +44,7 @@ namespace CodeDk
             get { return _parameter; }
         }
 
-        public TVarReference Factor
+        public FloatReference Factor
         {
             get { return _factor; }
         }
@@ -52,9 +54,7 @@ namespace CodeDk
             get { return _constant; }
         }
 
-        protected abstract TVar PerformLinearFunction();
-
-        private void UpdateResult(object subject, VariableReferenceEvent args)
+        public override void RunOnce()
         {
             if (_result == null ||
                 !_parameter.IsValid ||
@@ -65,6 +65,32 @@ namespace CodeDk
             }
 
             _result.Value = PerformLinearFunction();
+        }
+
+        protected abstract TVar PerformLinearFunction();
+
+        private void UpdateResult(object subject, VariableReferenceEvent args)
+        {
+            // If the event source is also the result sink, then one of the parameters
+            // must also be the result sink. To avoid infinite loops, exit now!
+            if (ReferenceEquals(_result, subject))
+            {
+                return;
+            }
+
+            RunOnce();
+        }
+
+        private void OnEnabledChanged(object sender, EventArgs e)
+        {
+            if (Enabled)
+            {
+                SubscribeToEvents();
+            }
+            else
+            {
+                UnsubscribeFromEvents();
+            }
         }
 
         private void SubscribeToEvents()

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0892e2fc846c56843bd3abb826be8864, type: 3}
+  m_Name: Ball_MovingFunction
+  m_EditorClassIdentifier: 
+  _enabled: 0
+  _parameter:
+    _usingGlobal: 1
+    _globalVariable: {fileID: 11400000, guid: 1e0f0d951443eca4d9a3524bc06d48df, type: 2}
+    _localValue: {x: 0, y: 0, z: 0}
+  _factor:
+    _usingGlobal: 1
+    _globalVariable: {fileID: 11400000, guid: 18654bc77f6a7ec41bc7108271e4bfa7, type: 2}
+    _localValue: 0
+  _constant:
+    _usingGlobal: 1
+    _globalVariable: {fileID: 11400000, guid: b9f602c311cabb74fb5324c62110cafc, type: 2}
+    _localValue: {x: 0, y: 0, z: 0}
+  _result: {fileID: 11400000, guid: b9f602c311cabb74fb5324c62110cafc, type: 2}

@@ -381,10 +381,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b04f5be83419214685f56c7f1534778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _systems:
-  - {fileID: 11400000, guid: 3476c407d60444c4f99f0f0e2ea8f441, type: 2}
+  _reactiveSystems:
   - {fileID: 11400000, guid: 9b918df0f7b568f40acfdd410da66208, type: 2}
   - {fileID: 11400000, guid: 5c887598e92fdf347bd15fb7eaad13b1, type: 2}
+  - {fileID: 11400000, guid: 3476c407d60444c4f99f0f0e2ea8f441, type: 2}
+  - {fileID: 11400000, guid: 27958837382e6f14da4aa23b073ad98c, type: 2}
+  _intervalSystems:
+  - {fileID: 11400000, guid: f933b90af148fd643b40643cca51c670, type: 2}
+  DeltaTime: {fileID: 11400000, guid: 18654bc77f6a7ec41bc7108271e4bfa7, type: 2}
+  FixedDeltaTime: {fileID: 11400000, guid: 0aabcd5bacf03dd48b06c5a1692d6014, type: 2}
 --- !u!4 &248295270
 Transform:
   m_ObjectHideFlags: 0
@@ -397,7 +402,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &351052251
 GameObject:
@@ -490,7 +495,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &490466739
 GameObject:
@@ -888,7 +893,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!850595691 &988035072
 LightingSettings:
@@ -951,66 +956,6 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaDirect: 0.5
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
---- !u!1 &1204364793
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1204364794}
-  - component: {fileID: 1204364795}
-  m_Layer: 0
-  m_Name: PongBallMover
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1204364794
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204364793}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1204364795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1204364793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad97f0bcfbb5574dae50fadc771350c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction:
-    _usingGlobal: 1
-    _globalVariable: {fileID: 11400000, guid: a20a7cea4906f31469ea524dc909c8b4, type: 2}
-    _localValue: {x: -0.59970355, y: 0.6691814, z: 0.4388075}
-  velocity:
-    _usingGlobal: 1
-    _globalVariable: {fileID: 11400000, guid: 91906464dd53880448f61943526b67ef, type: 2}
-    _localValue: 30
-  targetRigidbody: {fileID: 142800171}
-  ballPosition:
-    _usingGlobal: 1
-    _globalVariable: {fileID: 11400000, guid: b9f602c311cabb74fb5324c62110cafc, type: 2}
-    _localValue: {x: 0, y: 0, z: 0}
-  clampingFunction: {fileID: 11400000, guid: 3476c407d60444c4f99f0f0e2ea8f441, type: 2}
-  maxBallComponentCalculations:
-  - {fileID: 11400000, guid: 9b918df0f7b568f40acfdd410da66208, type: 2}
-  - {fileID: 11400000, guid: 5c887598e92fdf347bd15fb7eaad13b1, type: 2}
 --- !u!1 &1795829164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,7 +1086,7 @@ Transform:
   - {fileID: 2006281345}
   - {fileID: 517209614}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1797382826
 MonoBehaviour:

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CodeDk
 {
-    public abstract class ClampingFunction : System
+    public abstract class ClampingFunction : GlobalSystem
     {
         public event EventHandler<RangeBreachedEvent> ValueBreachedRange;
 
@@ -67,9 +67,7 @@ namespace CodeDk
             get { return _maxValue; }
         }
 
-        protected abstract (TVar Result, bool DidBreachRange) PerformClamping();
-
-        private void UpdateResult(object subject, VariableReferenceEvent args)
+        public override void RunOnce()
         {
             if (_result == null ||
                 !_parameter.IsValid ||
@@ -86,6 +84,20 @@ namespace CodeDk
                 _result.Value = clampResult.Result;
                 OnValueBreachedRange(RangeBreachedEvent.Empty);
             }
+        }
+
+        protected abstract (TVar Result, bool DidBreachRange) PerformClamping();
+
+        private void UpdateResult(object subject, VariableReferenceEvent args)
+        {
+            // If the event source is also the result sink, then one of the parameters
+            // must also be the result sink. To avoid infinite loops, exit now!
+            if (ReferenceEquals(_result, subject))
+            {
+                return;
+            }
+
+            RunOnce();
         }
 
         private void SubscribeToEvents()

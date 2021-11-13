@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dadb0674bc1cf8846934fdf1eae68622, type: 3}
   m_Name: Ball_Clamping_Calculation
   m_EditorClassIdentifier: 
+  _enabled: 1
   _wrapMode: 3
   _parameter:
     _usingGlobal: 1

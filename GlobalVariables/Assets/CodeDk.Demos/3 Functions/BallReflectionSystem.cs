@@ -1,10 +1,15 @@
-﻿using CodeDk;
+﻿using System;
+using CodeDk;
 using UnityEngine;
 
-public class RestrictedMover : MonoBehaviour
+[Serializable]
+public class BallReflectionSystem : CodeDk.GlobalSystem
 {
     public Vector3ClampingFunction clampingFunction;
     public Vector3Reference Direction;
+
+    public override void RunOnce()
+    { }
 
     public void OnEnable()
     {
@@ -67,7 +72,6 @@ public class RestrictedMover : MonoBehaviour
         Direction.Value = currentDirection;
     }
 
-
     private void ReflectWithYNormal(object source, RangeBreachedEvent args)
     {
         if (source is ClampingFunction clamping &&
@@ -80,7 +84,6 @@ public class RestrictedMover : MonoBehaviour
         currentDirection.y = -currentDirection.y;
         Direction.Value = currentDirection;
     }
-
 
     private void ReflectWithZNormal(object source, RangeBreachedEvent args)
     {

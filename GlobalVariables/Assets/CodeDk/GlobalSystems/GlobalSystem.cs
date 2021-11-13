@@ -3,12 +3,14 @@ using UnityEngine;
 
 namespace CodeDk
 {
-    public class System : ScriptableObject
+    public abstract class GlobalSystem : ScriptableObject
     {
+        public event EventHandler<EventArgs> EnabledChanged;
+
+        public abstract void RunOnce();
+
         [SerializeField]
         private bool _enabled;
-
-        public event EventHandler<EventArgs> EnabledChanged;
 
         public bool Enabled
         {

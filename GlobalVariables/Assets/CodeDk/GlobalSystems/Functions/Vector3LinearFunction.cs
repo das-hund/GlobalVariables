@@ -8,7 +8,7 @@ namespace CodeDk
     {
         protected override Vector3 PerformLinearFunction()
         {
-            return Vector3.Scale(Parameter, Factor) + Constant;
+            return Factor.Value * Parameter.Value + Constant;
         }
     }
 }

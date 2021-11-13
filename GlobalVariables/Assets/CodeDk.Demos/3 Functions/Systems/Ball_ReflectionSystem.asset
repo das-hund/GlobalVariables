@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84701a5585c488542bb2af264a01da7e, type: 3}
+  m_Name: Ball_ReflectionSystem
+  m_EditorClassIdentifier: 
+  _enabled: 1
+  clampingFunction: {fileID: 11400000, guid: 3476c407d60444c4f99f0f0e2ea8f441, type: 2}
+  Direction:
+    _usingGlobal: 1
+    _globalVariable: {fileID: 11400000, guid: a20a7cea4906f31469ea524dc909c8b4, type: 2}
+    _localValue: {x: 0, y: 0, z: 0}

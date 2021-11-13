@@ -58,6 +58,12 @@ namespace CodeDk
             }
         }
 
+        public void SetAndRaiseEvent(T value)
+        {
+            _value = value;
+            RaiseChangedEvent();
+        }
+
         public static implicit operator T(GlobalVariable<T> variableOfT)
         {
             return variableOfT.Value;

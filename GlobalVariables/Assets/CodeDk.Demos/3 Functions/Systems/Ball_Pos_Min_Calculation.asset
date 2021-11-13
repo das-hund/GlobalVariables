@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0892e2fc846c56843bd3abb826be8864, type: 3}
   m_Name: Ball_Pos_Min_Calculation
   m_EditorClassIdentifier: 
+  _enabled: 1
   _parameter:
     _usingGlobal: 1
     _globalVariable: {fileID: 11400000, guid: b2bc339e2c350c84e94db0c5b516c6e4, type: 2}
     _localValue: {x: 0, y: 0, z: 0}
   _factor:
     _usingGlobal: 0
-    _globalVariable: {fileID: 0}
-    _localValue: {x: -0.5, y: -0.5, z: -0.5}
+    _globalVariable: {fileID: 11400000, guid: 18654bc77f6a7ec41bc7108271e4bfa7, type: 2}
+    _localValue: -0.5
   _constant:
     _usingGlobal: 0
     _globalVariable: {fileID: 0}
