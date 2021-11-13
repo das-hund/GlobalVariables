@@ -2,7 +2,7 @@
 
 namespace CodeDk
 {
-    public abstract class LinearFunction : ScriptableObject
+    public abstract class LinearFunction : System
     {
     }
 

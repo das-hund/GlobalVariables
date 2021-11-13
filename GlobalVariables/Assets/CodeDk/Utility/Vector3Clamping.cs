@@ -6,7 +6,7 @@ namespace CodeDk
     {
         public static (Vector3 Result, bool[] DidBreachRange) ComponentWiseClamp(Vector3 input, Vector3 min, Vector3 max, RangeWrapMode mode)
         {
-            (Vector3 Result, bool[] DidBreachRange) clampResult = (Vector3.zero, new bool[]{false, false, false});
+            (Vector3 Result, bool[] DidBreachRange) clampResult = (Vector3.zero, new bool[] { false, false, false });
 
             for (int i = 0; i < 3; i++)
             {

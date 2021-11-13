@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4dd94f2a7939546bf320a749230679, type: 3}
   m_Name: CubeCount
   m_EditorClassIdentifier: 
-  value: 3
-  readOnly: 1
-  description: 
+  _value: 3
+  _readOnly: 1
+  _description: 

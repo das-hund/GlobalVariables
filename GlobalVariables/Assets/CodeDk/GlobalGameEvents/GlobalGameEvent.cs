@@ -16,9 +16,9 @@ namespace CodeDk
             Value.Unsubscribe(subscriber);
         }
 
-        public void RaiseEvent(EventArgType arg1)
+        public void RaiseEvent(EventArgType e)
         {
-            Value.RaiseEvent(arg1);
+            Value.RaiseEvent(e);
         }
 
         public void RaiseEvent()

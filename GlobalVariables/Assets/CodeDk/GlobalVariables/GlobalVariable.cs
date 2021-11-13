@@ -50,10 +50,10 @@ namespace CodeDk
             get { return _value; }
             set
             {
-                if (value.Equals(this._value))
+                if (value.Equals(_value))
                     return;
 
-                this._value = value;
+                _value = value;
                 RaiseChangedEvent();
             }
         }

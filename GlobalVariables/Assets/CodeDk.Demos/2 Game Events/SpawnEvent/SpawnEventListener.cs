@@ -1,5 +1,5 @@
 using CodeDk;
 
 public class SpawnEventListener
-     : GameEventListener<SpawnEventArgs, SpawnEvent, GlobalSpawnEvent, UnitySpawnEventResponse>
+     : GlobalGameEventListener<SpawnEventArgs, SpawnEvent, GlobalSpawnEvent, UnitySpawnEventResponse>
 { }

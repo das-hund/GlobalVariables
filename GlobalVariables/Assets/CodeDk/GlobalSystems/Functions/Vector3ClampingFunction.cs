@@ -20,7 +20,7 @@ namespace CodeDk
         {
             var clampingResult = Vector3Clamping.ComponentWiseClamp(Parameter, MinValue, MaxValue, WrapMode);
 
-            if(clampingResult.DidBreachRange[0])
+            if (clampingResult.DidBreachRange[0])
                 ValueBreachedRangeX?.Invoke(this, RangeBreachedEvent.Empty);
 
             if (clampingResult.DidBreachRange[1])

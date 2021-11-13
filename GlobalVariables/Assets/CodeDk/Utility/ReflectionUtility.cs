@@ -58,16 +58,24 @@ namespace CodeDk
                 else if (fieldValue is T[] arrayOfT)
                 {
                     if (index < arrayOfT.Length)
+                    {
                         return arrayOfT[index];
+                    }
                     else
+                    {
                         return default;
+                    }
                 }
                 else if (fieldValue is IList list)
                 {
                     if (index < list.Count)
+                    {
                         return (T)list[index];
+                    }
                     else
+                    {
                         return default;
+                    }
                 }
                 else if (fieldValue is IEnumerable enumerableObject)
                 {
@@ -76,14 +84,18 @@ namespace CodeDk
                     // Enumerator is positioned before the first element in the collection
                     // after initialization. If MoveNext returns false here, the collection is empty
                     if (!enumerator.MoveNext())
+                    {
                         return default;
+                    }
 
                     // We move the enumerator forward according to the index
                     for (int i = 0; i < index; i++)
                     {
                         // check, we do not move past the end of the list
                         if (!enumerator.MoveNext())
+                        {
                             return default;
+                        }
                     }
 
                     return (T)enumerator.Current;
@@ -149,12 +161,16 @@ namespace CodeDk
             MethodInfo[] methodsWithName = FindMethodsByName(subject, methodName);
 
             if (methodsWithName.Length == 0)
+            {
                 return false;
+            }
 
             MethodInfo methodMatch = FilterParametersless(methodsWithName).FirstOrDefault();
 
             if (methodMatch == null)
+            {
                 return false;
+            }
 
             methodMatch.Invoke(subject, null);
             return true;
@@ -165,14 +181,18 @@ namespace CodeDk
             MethodInfo[] methodsWithName = FindMethodsByName(subject, methodName);
 
             if (methodsWithName.Length == 0)
+            {
                 return false;
+            }
 
             Type[] parameterTypesGiven = GetTypes(parameters);
 
             MethodInfo methodMatch = FilterMatchingParameters(methodsWithName, parameterTypesGiven).FirstOrDefault();
 
             if (methodMatch == null)
+            {
                 return false;
+            }
 
             methodMatch.Invoke(subject, parameters);
             return true;
@@ -200,9 +220,13 @@ namespace CodeDk
             for (int i = 0; i < subjectTypes.Length; i++)
             {
                 if (subjects[i] == null)
+                {
                     subjectTypes[i] = null;
+                }
                 else
+                {
                     subjectTypes[i] = subjects[i].GetType();
+                }
             }
 
             return subjectTypes;
@@ -221,12 +245,16 @@ namespace CodeDk
         public static bool ParametersMatch(ParameterInfo[] parametersFound, Type[] parameterTypesGiven)
         {
             if (parametersFound.Length != parameterTypesGiven.Length)
+            {
                 return false;
+            }
 
             for (int i = 0; i < parametersFound.Length; i++)
             {
                 if (!parametersFound[i].ParameterType.IsAssignableFrom(parameterTypesGiven[i]))
+                {
                     return false;
+                }
             }
 
             return true;

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13ac5ae2eb77e8418f0a5f4e41b0b4d, type: 3}
   m_Name: MoveEvent
   m_EditorClassIdentifier: 
-  value:
-    inspectorArgs:
-      mover_id: 0
-      position: 0
-  readOnly: 1
-  description: 
+  _value:
+    _inspectorArgs:
+      _moverId: 0
+      _position: 0
+  _readOnly: 1
+  _description: 

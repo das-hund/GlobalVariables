@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CodeDk
 {
-    public class GameEventListener<EventArgType, GameEventType, GlobalEventType, UnityEventType> : MonoBehaviour
+    public class GlobalGameEventListener<EventArgType, GameEventType, GlobalEventType, UnityEventType> : MonoBehaviour
         where EventArgType : EventArgs
         where GameEventType : GameEvent<EventArgType>
         where GlobalEventType : GlobalGameEvent<GameEventType, EventArgType>

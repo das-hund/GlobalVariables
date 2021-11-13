@@ -352,6 +352,53 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &248295268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 248295270}
+  - component: {fileID: 248295269}
+  m_Layer: 0
+  m_Name: Systems
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &248295269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248295268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b04f5be83419214685f56c7f1534778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _systems:
+  - {fileID: 11400000, guid: 3476c407d60444c4f99f0f0e2ea8f441, type: 2}
+  - {fileID: 11400000, guid: 9b918df0f7b568f40acfdd410da66208, type: 2}
+  - {fileID: 11400000, guid: 5c887598e92fdf347bd15fb7eaad13b1, type: 2}
+--- !u!4 &248295270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248295268}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &351052251
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +792,7 @@ MonoBehaviour:
   variableToSet:
     _usingGlobal: 1
     _globalVariable: {fileID: 11400000, guid: b2bc339e2c350c84e94db0c5b516c6e4, type: 2}
-    _localValue: {x: 0, y: 0, z: 0}
+    _localValue: {x: 10, y: 10, z: 10}
   constantBias: {x: 0, y: 0, z: 0}
   relativeBias: {x: 0, y: 0, z: -1.5}
   lerp: 1
@@ -950,11 +997,11 @@ MonoBehaviour:
   direction:
     _usingGlobal: 1
     _globalVariable: {fileID: 11400000, guid: a20a7cea4906f31469ea524dc909c8b4, type: 2}
-    _localValue: {x: 0, y: 0, z: 0}
+    _localValue: {x: -0.59970355, y: 0.6691814, z: 0.4388075}
   velocity:
     _usingGlobal: 1
     _globalVariable: {fileID: 11400000, guid: 91906464dd53880448f61943526b67ef, type: 2}
-    _localValue: 0
+    _localValue: 30
   targetRigidbody: {fileID: 142800171}
   ballPosition:
     _usingGlobal: 1
@@ -1071,7 +1118,7 @@ GameObject:
   - component: {fileID: 1797382825}
   - component: {fileID: 1797382826}
   m_Layer: 0
-  m_Name: Surfaces
+  m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1111,7 +1158,7 @@ MonoBehaviour:
   variableToSet:
     _usingGlobal: 1
     _globalVariable: {fileID: 11400000, guid: b2bc339e2c350c84e94db0c5b516c6e4, type: 2}
-    _localValue: {x: 0, y: 0, z: 0}
+    _localValue: {x: 10, y: 10, z: 10}
   constantBias: {x: 0, y: 0, z: 0}
   relativeBias: {x: 0.1, y: 0.1, z: 0.1}
   lerp: 0

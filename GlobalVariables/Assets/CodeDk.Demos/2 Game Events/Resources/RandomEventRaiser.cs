@@ -20,8 +20,8 @@ public class RandomEventRaiser : VoidGameEventListener
         int randomFilterKey = UnityEngine.Random.Range(0, maxMoverId);
         int randomParameter = UnityEngine.Random.Range(valueStart, valueEnd);
 
-        _eventArgs.Position = randomParameter;
         _eventArgs.MoverId = randomFilterKey;
+        _eventArgs.Position = randomParameter;
 
         eventToRaise.RaiseEvent(_eventArgs);
     }

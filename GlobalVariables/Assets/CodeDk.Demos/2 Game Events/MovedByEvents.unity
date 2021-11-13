@@ -231,10 +231,9 @@ MonoBehaviour:
         m_CallState: 2
   eventToRaise: {fileID: 11400000, guid: 1b9c7e18152dc5a41a31690dd76c4074, type: 2}
   maxMoverId:
-    usingGlobal: 1
-    defaultToLocal: 0
-    globalVariable: {fileID: 11400000, guid: 8f482a2d0f7f538449fe22cef4416c06, type: 2}
-    localValue: 0
+    _usingGlobal: 1
+    _globalVariable: {fileID: 11400000, guid: 8f482a2d0f7f538449fe22cef4416c06, type: 2}
+    _localValue: 0
   valueStart: -15
   valueEnd: 15
 --- !u!4 &487642075
@@ -831,7 +830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventToRaise: {fileID: 11400000, guid: e437803bdd0c25c49a82e4ca501492bb, type: 2}
-  eventsPerSecond: 0
+  eventsPerSecond: 6
   eventsRaised: 0
 --- !u!4 &2083847906
 Transform:

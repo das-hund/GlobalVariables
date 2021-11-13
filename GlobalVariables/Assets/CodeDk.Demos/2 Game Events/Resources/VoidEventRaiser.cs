@@ -5,7 +5,7 @@ public class VoidEventRaiser : MonoBehaviour
 {
     public GlobalVoidGameEvent eventToRaise;
 
-    public float eventsPerSecond = 100;
+    public float eventsPerSecond = 1;
     public int eventsRaised = 0;
 
     public void Update()

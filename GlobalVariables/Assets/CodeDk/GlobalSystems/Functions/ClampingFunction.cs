@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace CodeDk
 {
-    public abstract class ClampingFunction : ScriptableObject
+    public abstract class ClampingFunction : System
     {
         public event EventHandler<RangeBreachedEvent> ValueBreachedRange;
 
@@ -81,7 +81,7 @@ namespace CodeDk
 
             var clampResult = PerformClamping();
 
-            if(clampResult.DidBreachRange)
+            if (clampResult.DidBreachRange)
             {
                 _result.Value = clampResult.Result;
                 OnValueBreachedRange(RangeBreachedEvent.Empty);

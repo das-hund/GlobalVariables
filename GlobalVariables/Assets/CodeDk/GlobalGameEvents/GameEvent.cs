@@ -19,17 +19,21 @@ namespace CodeDk
         public override void RaiseEvent()
         {
             if (GameEventOccurred != null)
+            {
 #if UNITY_EDITOR
                 GameEventOccurred.Invoke(this, _inspectorArgs);
 #else
                 GameEventOccurred.Invoke(this, default);
 #endif
+            }
         }
 
         public void RaiseEvent(EventArgType args)
         {
             if (GameEventOccurred != null)
+            {
                 GameEventOccurred.Invoke(this, args);
+            }
         }
 
         public void Subscribe(EventHandler<EventArgType> subscriber)

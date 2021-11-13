@@ -76,6 +76,12 @@ dotnet_naming_symbols.member_fields.applicable_accessibilities = private, protec
 
 dotnet_naming_style.member_field_style.capitalization = camel_case
 dotnet_naming_style.member_field_style.required_prefix = _
+
+###############################
+# Analyzer                    #
+###############################
+dotnet_diagnostic.IDE0044.severity = none
+
 ###############################
 # C# Coding Conventions       #
 ###############################
@@ -135,12 +141,6 @@ csharp_space_between_method_call_empty_parameter_list_parentheses = false
 # Wrapping preferences
 csharp_preserve_single_line_statements = true
 csharp_preserve_single_line_blocks = true
-###############################
-# VB Coding Conventions       #
-###############################
-[*.vb]
-# Modifier preferences
-visual_basic_preferred_modifier_order = Partial,Default,Private,Protected,Public,Friend,NotOverridable,Overridable,MustOverride,Overloads,Overrides,MustInherit,NotInheritable,Static,Shared,Shadows,ReadOnly,WriteOnly,Dim,Const,WithEvents,Widening,Narrowing,Custom,Async:suggestion
 
 ######################### Generated Code Folders #########################
 # Rules are not applied in the following folders

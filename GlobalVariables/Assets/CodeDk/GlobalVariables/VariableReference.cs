@@ -21,11 +21,12 @@ namespace CodeDk
             ChangedEvent -= handler;
         }
 
-
         public void RaiseChangeEvent()
         {
             if (ChangedEvent == null)
+            {
                 return;
+            }
 
             ChangedEvent.Invoke(this, VariableReferenceEvent.Empty);
         }
@@ -41,7 +42,9 @@ namespace CodeDk
         protected virtual void ForwardGlobalVariableEvent(object source, GlobalVariableEvent eventArgs)
         {
             if (ChangedEvent == null || eventArgs != GlobalVariableEvent.Empty)
+            {
                 return;
+            }
 
             ChangedEvent.Invoke(this, VariableReferenceEvent.Empty);
         }
@@ -66,7 +69,9 @@ namespace CodeDk
         protected void SubscribeToGlobal()
         {
             if (!IsGlobal || !IsValid)
+            {
                 return;
+            }
 
             UnsubscribeFromGlobal();
 
@@ -76,7 +81,9 @@ namespace CodeDk
         protected void UnsubscribeFromGlobal()
         {
             if (!IsGlobal || !IsValid)
+            {
                 return;
+            }
 
             UntypedGlobalVariable.UnsubscribeFromEvents(ForwardGlobalVariableEvent);
         }
@@ -84,9 +91,7 @@ namespace CodeDk
         public bool IsGlobal
         {
             get
-            {
-                return _usingGlobal;
-            }
+            { return _usingGlobal; }
             set
             {
                 if (_usingGlobal != value)
@@ -117,7 +122,6 @@ namespace CodeDk
 
         public abstract bool IsValid { get; }
 
-#if UNITY_EDITOR
         public void SubscribeTo(GlobalVariable variable)
         {
             variable.SubscribeToEvents(ForwardGlobalVariableEvent);
@@ -127,8 +131,6 @@ namespace CodeDk
         {
             variable.UnsubscribeFromEvents(ForwardGlobalVariableEvent);
         }
-#endif
-
     }
 
     [Serializable]
@@ -166,25 +168,32 @@ namespace CodeDk
         public void OnBeforeSerialize()
         { }
 
-
         public virtual VariableType Value
         {
             get
             {
                 if (!IsValid)
+                {
                     throw new InvalidOperationException("Cannot return value on VariableReference in global state when globalReference is null!");
-                
+                }
+
                 return IsGlobal ? GlobalVariable : LocalValue;
             }
             set
             {
                 if (!IsValid)
-                    throw new InvalidOperationException("Cannot assign value to VariableReference in global state when globalReference is null!");               
+                {
+                    throw new InvalidOperationException("Cannot assign value to VariableReference in global state when globalReference is null!");
+                }
 
                 if (IsGlobal)
+                {
                     GlobalVariable.Value = value;
+                }
                 else
+                {
                     LocalValue = value;
+                }
             }
         }
 
@@ -197,7 +206,9 @@ namespace CodeDk
             set
             {
                 if (value.Equals(_globalVariable))
+                {
                     return;
+                }
 
                 // Unsubscribe from currently reference GlobalVariable
                 UnsubscribeFromGlobal();
@@ -213,14 +224,13 @@ namespace CodeDk
 
         public VariableType LocalValue
         {
-            get
-            {
-                return _localValue;
-            }
+            get { return _localValue; }
             set
             {
                 if (value.Equals(_localValue))
+                {
                     return;
+                }
 
                 _localValue = value;
                 RaiseChangeEvent();
@@ -245,7 +255,10 @@ namespace CodeDk
         /// </summary>
         public override bool IsValid
         {
-            get { return IsLocal || _globalVariable != null; }
+            get
+            {
+                return IsLocal || _globalVariable != null;
+            }
         }
 
         public static implicit operator VariableType(VariableReference<VariableType, GlobalVariableType> variableReference)

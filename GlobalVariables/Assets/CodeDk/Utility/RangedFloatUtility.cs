@@ -29,7 +29,9 @@ namespace CodeDk
                 $"Parameter minValue (minValue) must be less than or equal to parameter maxValue ({maxValue})!");
 
             if (value >= minValue && value <= maxValue)
+            {
                 return (value, false);
+            }
 
             float rangeLength = maxValue - minValue;
             float valueShiftedToRange = value - minValue;
@@ -48,7 +50,9 @@ namespace CodeDk
                 minValue, maxValue);
 
             if (value >= minValue && value <= maxValue)
+            {
                 return (value, false);
+            }
 
             float rangeLength = maxValue - minValue;
             float valueShiftedToRange = value - minValue;

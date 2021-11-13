@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77636ac90c73a7d46aead0ec47ee4f61, type: 3}
   m_Name: Ball_Pos_Max
   m_EditorClassIdentifier: 
-  _value: {x: 5, y: 5, z: 5}
+  _value: {x: 4.5, y: 4.5, z: 4.5}
   _readOnly: 1
   _description: 
